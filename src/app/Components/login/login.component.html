@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="/assets/logo.png" alt="صورة توضيحية" class="img-fluid">
+              <img src="/assets/logo2.png" alt="صورة توضيحية" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+              <h2 class="mb-4">Welcome</h2>
+
+              <form action="" [formGroup]="loginForm" (ngSubmit) = "onSubmit()">
+
+                <mat-form-field class="customInput">
+                  <mat-label class="input">البريد الإلكتروني</mat-label>
+                  <mat-icon matPrefix>email</mat-icon>
+                  <input matInput placeholder="example@example.com" formControlName="email">
+                  <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+                </mat-form-field>
+
+                  <mat-form-field class="customInput">
+                    <mat-label class="input">Enter your password</mat-label>
+                    <mat-icon matPrefix>password</mat-icon>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button class="eyeIcon" mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                  <br/>
+
+                <button type="submit" class="btn mt-3"> Login</button>
+                
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
